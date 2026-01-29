@@ -8,7 +8,7 @@ use crate::question::DnsQuestion;
 use crate::codes::ResultCode;
 
 pub fn lookup(qname: &str, qtype: QueryType, server : (Ipv4Addr, u16)) -> Result<DnsPacket> {
-    let socket = UdpSocket::bind(("0.0.0.0",43210))?;
+    let socket = UdpSocket::bind(("0.0.0.0",0))?;
     let mut packet = DnsPacket::new();
     packet.header.id = 6666;
     packet.header.questions = 1;
